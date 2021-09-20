@@ -119,12 +119,23 @@ const toggle = (id) =>{
 //funçâo para deletar tarefa da lista de tarefas
 const deleteTodo = (id) => {
 
-  //filtra pelo id e atualiza o array
+  let confirm = window.confirm('Tem certeza que deseja apagar a tarefa?')
+
+  //confirmar para pegar tarefa
+  if (!confirm){
+
+    return;
+
+  }else if(confirm){
+
+    //filtra pelo id e atualiza o array
   todos = todos.filter(function(item) {
     return item.id != id
   });
-  alert('A tarefa será apagada')
+
   addToLocalStorage(todos)
+  }
+  
 }
 
 
